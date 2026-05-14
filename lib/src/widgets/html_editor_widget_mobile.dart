@@ -7,7 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_keyboard_visibility_temp_fork/flutter_keyboard_visibility_temp_fork.dart';
 import 'package:html_editor_enhanced/html_editor.dart'
     hide NavigationActionPolicy, UserScript, ContextMenu;
 import 'package:html_editor_enhanced/utils/utils.dart';
@@ -147,8 +147,8 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                     javaScriptEnabled: true,
                     transparentBackground: true,
                     useShouldOverrideUrlLoading: true,
-                    useHybridComposition: widget.htmlEditorOptions
-                        .androidUseHybridComposition,
+                    useHybridComposition:
+                        widget.htmlEditorOptions.androidUseHybridComposition,
                     loadWithOverviewMode: true,
                   ),
                   initialUserScripts:
@@ -213,7 +213,9 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                         });
                         await setHeightJS();
                       }
-                      var visibleDecimal = await visibleStream.stream.firstWhere((_) => !visibleStream.isClosed, orElse: () => 0);
+                      var visibleDecimal = await visibleStream.stream
+                          .firstWhere((_) => !visibleStream.isClosed,
+                              orElse: () => 0);
                       var newHeight = widget.otherOptions.height;
                       if (visibleDecimal > 0.1) {
                         this.setState(() {
